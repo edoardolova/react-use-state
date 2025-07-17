@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import languageData from '../data/languageData'
+import LanguageCard from './LanguageCard';
 
 export default function Main(){
     const [activeIndex, setActiveIndex] = useState(null)
@@ -15,12 +16,7 @@ export default function Main(){
                         <button key={index} onClick={()=> changeCard(index)} type="button" className={`btn ${index === activeIndex ? "btn-success" : "btn-primary"} fs-5 me-3`}>{language.name}</button>
                     ))}
                 </div>
-                <div className="card">
-                    <div className="card-body">
-                        <h2 className="card-title">{activeLanguage === undefined ? "Nessun linguaggio selezionato" : activeLanguage.name}</h2>
-                        <p className="card-text">{activeLanguage === undefined ? "" : activeLanguage.description}</p>
-                    </div>
-                </div>
+                <LanguageCard activeLanguage={activeLanguage}></LanguageCard>
             </div>
         </>
     )
