@@ -6,14 +6,13 @@ export default function Main(){
     let activeLanguage = languageData[activeIndex]
     function changeCard(index){
         setActiveIndex(index);
-        console.log(`current index: ${index}`);
     }
     return(
         <>
             <div className="container">
                 <div className='d-flex py-5'>
                     {languageData.map((language, index) => (
-                        <button key={index} onClick={()=> changeCard(index)} type="button" className="btn btn-primary fs-5 me-3">{language.name}</button>
+                        <button key={index} onClick={()=> changeCard(index)} type="button" className={`btn ${index === activeIndex ? "btn-success" : "btn-primary"} fs-5 me-3`}>{language.name}</button>
                     ))}
                 </div>
                 <div className="card">
