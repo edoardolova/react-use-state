@@ -2,7 +2,7 @@ import { useState } from 'react'
 import languageData from '../data/languageData'
 
 export default function Main(){
-    const [activeIndex, setActiveIndex] = useState(0)
+    const [activeIndex, setActiveIndex] = useState(null)
     let activeLanguage = languageData[activeIndex]
     function changeCard(index){
         setActiveIndex(index);
@@ -18,8 +18,8 @@ export default function Main(){
                 </div>
                 <div className="card">
                     <div className="card-body">
-                        <h5 className="card-title">{activeLanguage.name}</h5>
-                        <p className="card-text">{activeLanguage.description}</p>
+                        <h2 className="card-title">{activeLanguage === undefined ? "Nessun linguaggio selezionato" : activeLanguage.name}</h2>
+                        <p className="card-text">{activeLanguage === undefined ? "" : activeLanguage.description}</p>
                     </div>
                 </div>
             </div>
